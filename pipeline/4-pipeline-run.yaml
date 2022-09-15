@@ -10,15 +10,15 @@ spec:
   - name: application-name
     value: minesweeper
   - name: dependency-git-url
-    value: https://github.com/kmcolli/common-java-dependencies.git
+    value: https://github.com/<YOUR-GITHUB-ID>/common-java-dependencies
   - name: application-git-url
-    value: https://github.com/kmcolli/microsweeper-quarkus
+    value: https://github.com/<YOUR-GITHUB-ID>/aro-hackaton-app
   - name:  application-git-revision
     value: ARO
   - name: dockerfile-path
     value: src/main/docker/Dockerfile.jvm
   - name: image-name
-    value: kevcolliacr.azurecr.io/minesweeper
+    value: <CHANGE-ME>.azurecr.io/minesweeper
   workspaces:
   - name: source
     persistentVolumeClaim:
