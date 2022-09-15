@@ -8,7 +8,7 @@ spec:
   serviceAccountName: pipeline
   params:
   - name: application-name
-    value: minesweeper
+    value: microsweeper-appservice
   - name: dependency-git-url
     value: https://github.com/<YOUR-GITHUB-ID>/common-java-dependencies
   - name: application-git-url
