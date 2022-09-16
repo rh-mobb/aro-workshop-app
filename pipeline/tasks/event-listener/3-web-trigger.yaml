@@ -10,7 +10,7 @@ spec:
       params:
         - name: "secretRef"
           value:
-            secretName: github-secret
+            secretName: gitsecret
             secretKey: secretToken
         - name: "eventTypes"
           value: ["push"]

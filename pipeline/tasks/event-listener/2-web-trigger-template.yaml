@@ -17,11 +17,11 @@ spec:
   - apiVersion: tekton.dev/v1beta1
     kind: PipelineRun
     metadata:
-      generateName: build-pipeline-$(tt.params.git-repo-name)
+      generateName: maven-pipeline-$(tt.params.git-repo-name)
     spec:
       serviceAccountName: pipeline
       pipelineRef:
-        name: build-pipeline
+        name: maven-pipeline
       params:
         - name: application-name
           value: microsweeper-appservice
@@ -29,8 +29,6 @@ spec:
           value: https://github.com/<YOUR-GITHUB-ID>/common-java-dependencies
         - name: application-git-url
           value: https://github.com/<YOUR-GITHUB-ID>/aro-hackaton-app
-        - name:  application-git-revision
-          value: ARO
         - name: dockerfile-path
           value: src/main/docker/Dockerfile.jvm
         - name: image-name
