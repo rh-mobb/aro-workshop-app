@@ -99,4 +99,4 @@ spec:
     - name: deployment
       value: $(params.application-name)
     - name: IMAGE
-      value: $(params.image-name)
+      value: $(params.image-name):$(tasks.application-git-clone.results.commit)
