@@ -1,0 +1,41 @@
+apiVersion: triggers.tekton.dev/v1beta1
+kind: TriggerTemplate
+metadata:
+  name: minesweeper-trigger-template
+spec:
+  params:
+  - name: git-repo-url
+    description: The git repository url
+  - name: git-revision
+    description: The git revision
+    default: master
+  - name: git-repo-name
+    description: The name of the deployment to be created / patched
+  - name: 
+
+  resourcetemplates:
+  - apiVersion: tekton.dev/v1beta1
+    kind: PipelineRun
+    metadata:
+      generateName: build-pipeline-$(tt.params.git-repo-name)
+    spec:
+      serviceAccountName: pipeline
+      pipelineRef:
+        name: build-pipeline
+      params:
+        - name: application-name
+          value: microsweeper-appservice
+        - name: dependency-git-url
+          value: https://github.com/<YOUR-GITHUB-ID>/common-java-dependencies
+        - name: application-git-url
+          value: https://github.com/<YOUR-GITHUB-ID>/aro-hackaton-app
+        - name:  application-git-revision
+          value: ARO
+        - name: dockerfile-path
+          value: src/main/docker/Dockerfile.jvm
+        - name: image-name
+          value: <CHANGE-ME>.azurecr.io/minesweeper
+        workspaces:
+        - name: source
+          persistentVolumeClaim:
+            claimName: minesweeper-source-pvc
