@@ -12,7 +12,7 @@ spec:
   - name: dependency-git-url
     value: https://github.com/<YOUR-GITHUB-ID>/common-java-dependencies
   - name: application-git-url
-    value: https://github.com/<YOUR-GITHUB-ID>/aro-hackaton-app
+    value: https://github.com/<YOUR-GITHUB-ID>/aro-workshop-app
   - name: dockerfile-path
     value: src/main/docker/Dockerfile.jvm
   - name: image-name
